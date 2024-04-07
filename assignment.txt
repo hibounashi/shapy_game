@@ -1,0 +1,67 @@
+AI Assignment: Design an Expert System in chosen domain
+
+This assignment challenges you to design and document a basic expert system application.
+Your expert system can focus on any domain of your choice, as long as it offers a decision-making
+process with a defined set of rules.
+The basic idea behind this assignment is to understand the architecture of an expert system and to formulate a real problem in AI to be solved.
+Therefore,the focus is on providing a real solution with simple steps using all expert system elements
+
+Objective:
+1. Design and implement a rule-based expert system application in your chosen domain (e.g.,medical diagnosis for specific illness, financial planning, technical troubleshooting,...etc).
+
+    Your assignement contains two parts :
+    -One page report that contains the necessary details about the application, briefly describe your chosen topic ,how did you formulate your problem in into the different ES elements (the marks will be included in TD’s marks)
+
+    -The Application (TP’s marks)
+    ES details :
+    1. The user interface is the means of communication between a user seeking a solution to the problem and an expert system.
+    2. Knowledge Base (KB):
+         Rule-Based System: Define a minimum of 15 rules that your system will use to make
+        decisions. Each rule should be in an IF-THEN format (Example: IF symptom X is
+        present and symptom Y is absent, THEN diagnosis Z is likely). See exercise 4 ,
+        inference TD.
+         Database of Facts: The database includes a set of facts used to match against the IF
+        (condition) parts of rules stored in the knowledge base, specify the type of factual data
+        your system will utilize (Ex: symptoms, patient history, ....).
+    3.Explanation Unit(facility): 
+    The explanation facilities enable the user to ask the expert
+    system how a particular conclusion is reached and why a specific fact is needed.An expert
+    system must be able to explain its reasoning and justify its advice, analysis or conclusion.
+    -Briefly explain how your system would provide explanations to the user for its reasoning
+    process (provide the output of the solution what is the illness ,provide the specific rules that
+    lead to the solution , provide an advice ,..... ).
+
+2. Working Memory: 
+    Implement a working memory component where temporary data is stored
+    during the inference process.
+
+3. Agenda:
+    Design and implement an agenda mechanism that manages the sequence of tasks
+    or goals to be accomplished by the expert system. ES apply heuristics to guide the reasoning
+    (inference) and thus reduce the search area for a solution If you will have several rules that
+    will be fired you can order them which the one is going to be the first , 
+    second based on
+    using other algorithms that do that for you . You can use breath first search (FIFO ) of depth
+    first search (LIFO)to store your rules to apply the priority on them so you can even reduce
+    the search space (For example, when employing backward chaining, a single conclusion
+    might came from multiple rules, and that needs the checking of several rules. The most
+    efficient or correct one can be identified using LIFO (Last In, First Out) approach ) . You
+    can investigate other advanced heuristic methods.
+
+4.Inference Engine : 
+    is the algorithm used to reason about the KB , you choose between
+    forward chaining or backward chaining
+
+Additional Notes:
+ You are not required to develop a big functional program for this assignment , a simple
+application with all the ES elements will be sufficient, think simply ,think efficiently , think
+outside the box . As mentioned before, your goal behind this application is how you can solve
+a real problem and formulate it using one of the AI approaches.
+Example Domain:
+Imagine you're designing an expert system to help diagnose basic car troubles. The KB will
+include rules about symptoms (e.g., flat tire, engine overheating) and their corresponding car
+problems (e.g., punctured tire, coolant leak). The explanation unit might explain the reasoning
+behind each suggested diagnosis. The working memory would store user inputs like reported
+symptoms. Finally, the agenda might prioritize rules based on the severity of potential
+problems.
+This is just an example. Feel free to explore any domain that interests you!

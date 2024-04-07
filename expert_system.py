@@ -12,7 +12,7 @@ from aima3.utils import *
 
 KB = FolKB()
 
-#Base de connaissance
+#Base de connaissance (features)
 
 KB.tell(expr('NbCotes(carre, 4)'))
 KB.tell(expr('NbCotes(triangle, 3)'))
@@ -99,3 +99,12 @@ KB.tell(expr('ParalleleCotes(x) & (NbAngles(x,6)|NbCotes(x,6))==>IsHexagone(x)')
 
 
 KB.tell(expr('Cote courbe(x)==>IsCercle(x)'))
+
+def display_shape_features(shape):
+    print("Features of", shape, ":")
+    inferred_features = fol_fc_ask(KB, expr('Is' + shape + '(x)'), bindings={ 'x': shape })
+    for feature in inferred_features:
+        print(feature)
+
+# Example usage
+display_shape_features('Carre')
