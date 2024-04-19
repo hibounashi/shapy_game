@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sur les formes géométriques</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz sur les formes géométriques</h1>
+    <div id="question"></div>
+    <div id="options"></div>
+    <div id="result"></div>
+
+    <script>
+        const questions = [
+            {
+                question: "How many sides does the geometric shape have?",
+                options: ["0","3", "4", "5", "6"],
+                answer: "4",
+                key: "sides"
+            },
+            {
+                question: "How many angles does the geometric shape have?",
+                options: ["0","3", "4", "5", "6"],
+                answer: "3",
+                key: "angles"
+            },
+            {
+                question: "Does the geometric shape have diagonals?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "diagonals"
+            },
+            {
+                question: "Does the geometric shape have obtuse angles?",
+                options: ["Oui", "Non"],
+                answer: "Non",
+                key: "obtuseAngle"
+            },
+            {
+                question: "Does the geometric shape have acute angles?",
+                options: ["Oui", "Non"],
+                answer: "Non",
+                key: "acuteAngle"
+            },
+            {
+                question: "Does the geometric shape have right angles?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "rightAngle"
+            },
+
+            {
+                question: "Do the geometric shape's sides have perpendicular sides?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "perpendicularSides"
+            },
+            {
+                question: "Do the geometric shape's sides have parallel sides?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "parallelSides"
+            },
+
+
+            {
+                question: "Do the geometric shape's sides have equal lengths?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "equalSides"
+            },
+            {
+                question: "Is the shape symmetric?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "symmetric"
+            }
+
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        const resultElement = document.getElementById('result');
+
+        function displayQuestion() {
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+            const currentQuestion = questions[currentQuestionIndex];
+
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => answerQuestion(option);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        function answerQuestion(selectedOption) {
+            userAnswers[currentQuestionIndex] = {
+                key: questions[currentQuestionIndex].key,
+                answer: selectedOption
+            };
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+
+        function showResult() {
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'Waiting for server response...';
+            sendData(userAnswers);
+}
+//fetching data from the server
+function sendData(data) {
+    const resultElement = document.getElementById('result');
+    fetch('/backend/templates/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();  // Parse JSON response
+        } else {
+            throw new Error('Network response was not ok.');
+        }
+    })
+    .then(responseData => {
+        // Handle response from the server
+
+        resultElement.textContent += responseData.finnn; 
+    })
+    .catch(error => {
+        console.error('Error sending data:', error);
+        // Handle error if any
+    });
+}
+
+
+        displayQuestion();
+    </script>
+</body>
+</html>
