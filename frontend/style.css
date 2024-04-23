@@ -1,0 +1,157 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik+Burned&display=swap');
+:root {
+
+    background-color: black;
+    font-size: 62.5%;
+  }
+  
+  * {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: "Nunito", sans-serif;
+  }
+  .v{
+    width: 20rem;
+    height: 12rem;
+    
+  }
+  .demi{
+   
+    margin-left: 15rem;
+  }
+  .cont{
+    height: 80%;
+    width: 90%;
+    margin-top: 0%;
+    margin-bottom: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .titre{
+    font-family: "Rubik Burned", system-ui;
+    font-size: 5rem;
+    color: aliceblue;
+  }
+  .picp{
+    width: 20rem;
+    height: 8rem;
+    margin-left: 6rem;
+  }
+  .choix-text {
+    display: flex;
+    font-size: large;
+    font-weight: 900;
+   
+    font-size: 1.8rem;
+    color: rgb(240, 93, 177);
+    border-color:  linear-gradient(#e66465, #9198e5);
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .border-gradient {
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+  }
+  .border-gradient-purple {
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  }
+  .quest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    color: white;
+    
+
+  }
+  #monDiv{
+    
+background-color: black;
+
+  }
+  #monBouton{
+    
+    width: 15rem;
+    height: 4rem;
+    padding: 0;
+    margin-left: 16rem;
+    margin-top: 3rem;
+   border-color:rgb(72, 201, 240) ;
+    color: rgb(240, 93, 177);
+    border-radius: 12px;
+
+  }
+  .logo{
+    margin-top: 5rem;
+    margin-left: 7rem;
+    width: 22rem;
+    height: 8rem;
+  }
+  button {
+    margin: 1rem;
+    padding: 1rem;
+    width: 7rem;
+    color: white;
+    background-color:black ;
+    font-size: 2rem;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+    border-color: #d53a9d;
+    border-radius: 18px;
+    border-width: 2px;
+  }
+  
+button:hover{
+    cursor: pointer;
+    
+}
+body{
+  background-color: black;
+}
+#result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: white;
+}
+.bord{
+    margin: auto;
+    margin-bottom: 10rem;
+    max-width: 55%;
+    padding-left: 0rem;
+    margin-top: 5rem;
+    border:2px solid rgb(72, 201, 240) ;
+    border-radius: 25px;
+    background-color: black;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0rem;
+    font-size: 2.5rem;
+    color: white;
+}
+.paragraphe{
+  font-size: 2rem;
+  color: aliceblue;
+  max-width: 80%;
+}
+.picg{
+  width: 80rem;
+  height: 72rem;
+  margin-top: -40;
+}

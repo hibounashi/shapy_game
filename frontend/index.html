@@ -1,0 +1,284 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>sur les formes géométriques</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <style>
+        body {
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Shapy-removebg-preview.png" alt="Logo Pic" class="logo">
+    </header>
+    <div class="cont">
+        
+        <div class="demi">
+        <h2 class="titre">
+          
+        Welcome to
+        </h2>
+        <img src="Shapy-removebg-preview.png" alt="" class="picp">
+        <p class="paragraphe">
+            Shapy Bits is a brain-bendig bonanza that will have you twisting and turning blocks to create all sorts of shapes .Put your logic and creativity to the test as you solve puzzles that get trickier with each level .Can you master the shapes and become a Shapy game champion?
+        </p>
+        <button id="monBouton">play</button>
+        </div>
+        <img  src="A.jpg" alt="" class="picg">
+        
+
+    </div>
+    
+    <div>
+    <container id="monDiv" class="container" class="justify-center flex-column">
+        <h1>Let's start playing !!!</h1>
+        
+       <div class="bord"> 
+        <div id="question" class="quest"></div>
+        <div id="options" class="choix-text " class=""></div>>
+        <div id="result"></div>
+    </div>
+    </container>
+</div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    <script>
+         const bouton = document.getElementById('monBouton');
+        const div = document.getElementById('monDiv');
+
+        bouton.addEventListener('click', () => {
+            if (div.style.display === 'none') {
+                div.style.display = 'block';
+            } else {
+                div.style.display = 'none';
+            }
+        });
+        const questions = [
+            {
+                question: "How many sides does the geometric shape have?",
+                options: ["0","3", "4", "5", "6"],
+                answer: "4",
+                key: "sides"
+            },
+            {
+                question: "How many angles does the geometric shape have?",
+                options: ["0","3", "4", "5", "6"],
+                answer: "3",
+                key: "angles"
+            },
+            {
+                question: "Does the geometric shape have diagonals?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "diagonals"
+            },
+            {
+                question: "Does the geometric shape have obtuse angles?",
+                options: ["Oui", "Non"],
+                answer: "Non",
+                key: "obtuseAngle"
+            },
+            {
+                question: "Does the geometric shape have acute angles?",
+                options: ["Oui", "Non"],
+                answer: "Non",
+                key: "acuteAngle"
+            },
+            {
+                question: "Does the geometric shape have right angles?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "rightAngle"
+            },
+          
+            {
+                question: "Do the geometric shape's sides have perpendicular sides?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "perpendicularSides"
+            },
+            {
+                question: "Do the geometric shape's sides have parallel sides?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "parallelSides"
+            },
+
+            
+            {
+                question: "Do the geometric shape's sides have equal lengths?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "equalSides"
+            },
+            {
+                question: "Is the shape symmetric?",
+                options: ["Oui", "Non"],
+                answer: "Oui",
+                key: "symmetric"
+            }
+
+        ];
+
+        const geometricShapes = {
+            square: {
+                sides: "4",
+                angles: "4",
+                diagonals: "Oui",
+                obtuseAngle: "Non",
+                rightAngle: "Oui",
+                acuteAngle:"Non",
+                perpendicularSides: "Oui",
+                parallelSides: "Oui",
+                equalSides: "Oui",
+                symmetric:"Oui"
+            },
+            rectangle: {
+                sides: "4",
+                angles: "4",
+                diagonals: "Oui",
+                obtuseAngle: "Non",
+                rightAngle: "Oui",
+                acuteAngle:"Non",
+                perpendicularSides: "Oui",
+                parallelSides: "Oui",
+                equalSides: "Non",
+                symmetric:"Oui"
+            },
+            triangle: {
+                sides: "3",
+                angles: "3",
+                diagonals: "Non",
+                obtuseAngle: "Oui",
+                rightAngle: "Non",
+                acuteAngle:"Oui",
+                perpendicularSides: "Non",
+                parallelSides: "Non",
+                equalSides: "Non",
+                symmetric:"Non"
+            },
+            rightTriangle:{
+                sides: "3",
+                angles: "3",
+                diagonals: "Non",
+                obtuseAngle: "Non",
+                rightAngle: "Oui",
+                acuteAngle:"Oui",
+                perpendicularSides: "Oui",
+                parallelSides: "Non",
+                equalSides: "Non",
+                symmetric:"Non"
+            },
+            circle: {
+                sides: "0",
+                angles: "0",
+                diagonals: "Non",
+                obtuseAngle: "Non",
+                rightAngle: "Non",
+                acuteAngle:"Non",
+                perpendicularSides: "Non",
+                parallelSides: "Non",
+                equalSides: "Non",
+                symmetric:"Oui"
+            },
+            pentagon: {
+                sides: "5",
+                angles: "5",
+                diagonals: "Oui",
+                obtuseAngle: "Oui",
+                rightAngle: "Non",
+                acuteAngle:"Non",
+                perpendicularSides: "Non",
+                parallelSides: "Non",
+                equalSides: "Oui",
+                symmetric:"Non"
+            },
+            hexagon: {
+                sides: "6",
+                angles: "6",
+                diagonals: "Oui",
+                obtuseAngle: "Oui",
+                rightAngle: "Non",
+                acuteAngle:"Non",
+                perpendicularSides: "Non",
+                parallelSides: "Oui",
+                equalSides: "Oui",
+                symmetric:"Oui"
+            }
+        };
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        const resultElement = document.getElementById('result');
+
+        function displayQuestion() {
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+            const currentQuestion = questions[currentQuestionIndex];
+
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => answerQuestion(option);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        function answerQuestion(selectedOption) {
+            userAnswers[currentQuestionIndex] = {
+                key: questions[currentQuestionIndex].key,
+                answer: selectedOption
+            };
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+
+        function showResult() {
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'Waiting for server response...';
+            sendData(userAnswers);
+}
+//fetching data from the server
+function sendData(data) {
+    const resultElement = document.getElementById('result');
+    fetch('/backend/templates/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();  // Parse JSON response
+        } else {
+            throw new Error('Network response was not ok.');
+        }
+    })
+    .then(responseData => {
+        // Handle response from the server
+
+        resultElement.textContent += responseData.finnn; 
+    })
+    .catch(error => {
+        console.error('Error sending data:', error);
+        // Handle error if any
+    });
+}
+
+
+        displayQuestion();
+    </script>
+</body>
+</html>
