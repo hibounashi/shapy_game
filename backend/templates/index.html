@@ -126,7 +126,7 @@
 //fetching data from the server
 function sendData(data) {
     const resultElement = document.getElementById('result');
-    fetch('/backend/templates/', {
+    fetch('https://yaskrazi.pythonanywhere.com/backend/templates/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

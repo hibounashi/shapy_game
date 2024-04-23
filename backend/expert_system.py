@@ -9,12 +9,11 @@ data = [{'key': 'sides', 'answer': '0'}, {'key': 'angles', 'answer': '0'}, {'key
 # Function to convert features data into first-order logic statements
 def convertToKBFeatures(data):
     result = []
-    shapes = ['Carre', 'Triangle', 'Hexagone', 'Cercle', 'Pentagone', 'Quadrant', 'Rectangle']
 
     for item in data:
         key = item['key']
         answer = item['answer']
-        print(answer)
+        print(key,answer)
         if key == "sides":
             if answer == "0":
                 result.append('NbCotes(Cercle, Zero)')
@@ -60,7 +59,7 @@ def convertToKBFeatures(data):
                 result.append('Feature(EqualSides)')
         elif key == "symmetric":
             if answer == "Oui":
-                result.append('Feature(Symmetric)')
+                result.append('Feature(Symmetry)')
 
     return result
 
@@ -112,15 +111,15 @@ def forwardChainQuery(params ):
     #Rule-Based System:
     KB.tell(expr('Feature(TypesOfAngles(Right)) & Feature(ParallelSides) ==> Feature(PerpendicularSides)'))
     KB.tell(expr('NbCotes(x, Three) ==> IsTriangle(x)'))
-    KB.tell(expr('IsTriangle(x) & Feature(AcuteAngle) ==> IsTriangleAigu(x)'))
-    KB.tell(expr('IsTriangle(x) & Feature(RightAngle) ==> IsTriangleRect(x)'))
-    KB.tell(expr('IsTriangle(x) & Feature(ObtuseAngle) ==> IsTriangleObtus(x)'))
-    KB.tell(expr('NbCotes(x, Five) ==> IsPentagone(x)'))
-    KB.tell(expr('NbCotes(x, Six) ==> IsHexagone(x)'))
-    KB.tell(expr('NbDiagonales(x,Nine) ==> IsHexagone(x)'))
+    KB.tell(expr('IsTriangle(x) & Feature(AcuteAngle) ==> IsTriangleAigu(AcuteAngle)'))
+    KB.tell(expr('IsTriangle(x) & Feature(RightAngle) ==> IsTriangleRect(RightAngle)'))
+    KB.tell(expr('IsTriangle(x) & Feature(ObtuseAngle) ==> IsTriangleObtus(ObtuseAngle)'))
+    KB.tell(expr('NbCotes(x, Five) ==> IsPentagone(Pentagone)'))
+    #KB.tell(expr('NbCotes(x, Six) ==> IsHexagone(x)'))
+    #KB.tell(expr('NbDiagonales(x,Nine) ==> IsHexagone(x)'))
     KB.tell(expr('Feature(ParallelSides) & NbCotes(x, Six) ==> IsHexagone(x)'))
     KB.tell(expr('NbCotes(x, Zero) ==> IsCercle(x)'))
-    KB.tell(expr('Feature(CurvedSide) ==> IsCercle(x)'))
+    #KB.tell(expr('Feature(CurvedSide) ==> IsCercle(x)'))
     KB.tell(expr('NbCotes(Quadrant, Four) ==> IsQuadrant(Quadrant)'))
     KB.tell(expr('IsQuadrant(x) & Feature(ParallelSides) & Feature(EqualSides) ==> IsCarre(Carre)'))
     KB.tell(expr('IsQuadrant(x) & Feature(PerpendicularSides) & Feature(EqualSides) ==> IsCarre(Carre)'))
